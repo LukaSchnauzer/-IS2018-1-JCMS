@@ -108,14 +108,12 @@
     
             var infowindow = new google.maps.InfoWindow(); 
             var marker, i;
-
             for (i = 0; i < markerLat.length; i++) {
                 marker = new google.maps.Marker({
                     position: new google.maps.LatLng(markerLat[i], markerLong[i]),
                     map: map,
                     title:markerName[i]
                 });
-
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
                     infowindow.setContent(ventanaInfo(markerDescr[i],markerLat[i],markerLong[i],markerName[i]));
