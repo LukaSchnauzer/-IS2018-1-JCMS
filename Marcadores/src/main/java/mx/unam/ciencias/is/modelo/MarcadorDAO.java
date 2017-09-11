@@ -97,8 +97,8 @@ public class MarcadorDAO {
             tx = s.beginTransaction();
             String hql = "FROM Marcador WHERE varLatitud = :latitud AND varLongitud = :longitud";                  
             Query query = s.createQuery(hql);
-            query.setParameter("varLatitud",latitud);
-            query.setParameter("varLongitud",longitud);
+            query.setParameter("latitud",latitud);
+            query.setParameter("longitud",longitud);
             result = (Marcador)query.uniqueResult();
             tx.commit();
         }catch(Exception e){
@@ -123,9 +123,9 @@ public class MarcadorDAO {
         Transaction tx = null;
         try{
             tx = s.beginTransaction();
-            String hql = "FROM Marcador WHERE idmarcador = :id";                  
+            String hql = "FROM Marcador WHERE marcador_id = :id";                  
             Query query = s.createQuery(hql);
-            query.setParameter("idmarcador",id);
+            query.setParameter("id",id);
             result = (Marcador)query.uniqueResult();
             tx.commit();
         }catch(Exception e){

@@ -99,8 +99,6 @@ public class Controlador {
 
         Double latitud = Double.parseDouble(request.getParameter("latitud"));
         Double longitud = Double.parseDouble(request.getParameter("longitud"));
-        String nombre = request.getParameter("nombre");
-        String descripcion = request.getParameter("descripcion");
         Marcador ma = marcador_db.getMarcador(latitud, longitud);
         if(ma!=null)
             marcador_db.eliminar(ma);
@@ -110,23 +108,17 @@ public class Controlador {
     
     @RequestMapping(value= "/actualizar", method = RequestMethod.POST)
     public String actualizar(HttpServletRequest request){
-        
-        if(request.getParameter("latitud") != null
-                && request.getParameter("longitud") != null
-                && request.getParameter("nombre") != null
-                && request.getParameter("descripcion") != null){
-        
-            Double latitud = Double.parseDouble(request.getParameter("latitud"));
-            Double longitud = Double.parseDouble(request.getParameter("longitud"));
-            String nombre = request.getParameter("nombre");
-            String descripcion = request.getParameter("descripcion");
-            Marcador ma = marcador_db.getMarcador(latitud, longitud);
+        if(request.getParameter("id") != null){
+            Marcador ma = marcador_db.getMarcadorId(Integer.parseInt(request.getParameter("id")));
             if(ma!=null){
-                ma.setVarLatitud(latitud);
-                ma.setVarLongitud(longitud);
-                ma.setVarNombreM(nombre);
-                ma.setVarDescripcion(descripcion);
-            
+                if(request.getParameter("latitud") != null && !request.getParameter("latitud").equals(""))
+                    ma.setVarLatitud(Double.parseDouble(request.getParameter("latitud")));
+                if(request.getParameter("longitud") != null && !request.getParameter("longitud").equals(""))
+                    ma.setVarLongitud(Double.parseDouble(request.getParameter("longitud")));
+                if(request.getParameter("nombre") != null && !request.getParameter("nombre").equals(""))
+                    ma.setVarNombreM(request.getParameter("nombre"));
+                if(request.getParameter("descripcion") != null && !request.getParameter("descripcion").equals(""))
+                    ma.setVarDescripcion(request.getParameter("descripcion"));
                 marcador_db.actualizar(ma);
             }
         }
