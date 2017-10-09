@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author jonathan
  */
 @Controller 
-public class Controlador {
+public class ControladorMarcador {
     /*Injectamos el modelo del marcador */
     @Autowired
     MarcadorDAO marcador_db;
@@ -32,14 +32,13 @@ public class Controlador {
      * @param model 
      * @return regresa el modelo 
      */
-    @RequestMapping(value="/", method = RequestMethod.GET)
+    @RequestMapping(value="/inicio", method = RequestMethod.POST)
     public ModelAndView marcadores(ModelMap model){
         List<Marcador> mar = marcador_db.getMarcadores();
           
         model.addAttribute("marcadores", mar);
         
         return new ModelAndView("inicio",model);
-    
     }
     
    
@@ -75,8 +74,6 @@ public class Controlador {
         }
         return "redirect:/";
     }
-    
-    
     
     /**
      * Actualiza el marcador
