@@ -48,45 +48,40 @@ body {
             <p class="center login-form-text">Ingresa tus datos</p>
           </div>
         </div>
+         <form action="/Marcadores/guardaUsuario" method="GET">
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text" class="validate">
-            <label for="username" class="center-align">Nombre</label>
-          </div>
-        </div>
-        <div class="row margin">
-          <div class="input-field col s12">
-            <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text" class="validate">
-            <label for="username" class="center-align">Nick</label>
+            <input name="nick" id="nick" type="text" class="validate">
+            <label for="nick" class="center-align">Nick</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-communication-email prefix"></i>
-            <input id="email" type="email" class="validate">
+            <input name="email" id="email" type="email" class="validate">
             <label for="email" class="center-align">E-mail</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password" class="validate">
+            <input name="password" id="password" type="password" class="validate">
             <label for="password">Contrasena</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password-again" type="password">
-            <label for="password-again">Confirma Contraseña</label>
+            <input name="password-conf" id="password-conf" type="password">
+            <label for="password-conf">Confirma Contraseña</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="register.html" class="btn waves-effect waves-light col s12">Registrate</a>
+            <button type="submit" class="btn btn-primary btn-lg active">¡Registrate!</button>
           </div>
+            </form>
             <form action="/Marcadores/" >
             <div class="input-field col s12">
                 <p class="margin center medium-small sign-up">¿Ya tienes una cuenta? <button type="submit" class="btn btn-primary btn-lg active">Login</button></p>

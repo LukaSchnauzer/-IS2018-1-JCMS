@@ -29,13 +29,17 @@ public class ControladorUsuario {
      */
     @RequestMapping(value="/guardaUsuario", method = RequestMethod.GET)
     public String guardaUsuario(HttpServletRequest request){
-        String nickname = request.getParameter("nickname");
-        String correo = request.getParameter("correo");
-        String contrasena = request.getParameter("contrasena");
+        String nick = request.getParameter("nick");
+        String correo = request.getParameter("email");
+        String contrasena = request.getParameter("password");
+        String contrasenaConf = request.getParameter("password-conf");
         Usuario u = usuario_db.getUsuario(correo);
-        if(u==null){
+        System.out.println(nick);
+        System.out.println(contrasena);
+        System.out.println(contrasenaConf);
+        if(u==null && (contrasenaConf.equals(contrasena))){
             u = new Usuario();
-            u.setVarNickname(nickname);
+            u.setVarNickname(nick);
             u.setVarCorreo(correo);
             u.setVarContrasena(contrasena);
             usuario_db.guardar(u);       

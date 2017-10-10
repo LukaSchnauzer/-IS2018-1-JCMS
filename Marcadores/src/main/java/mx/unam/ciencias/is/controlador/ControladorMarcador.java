@@ -70,7 +70,6 @@ public class ControladorMarcador {
             m.setVarNombreM(nombre);
             m.setVarDescripcion(descripcion);
             marcador_db.guardar(m);
-        
         }
         return "redirect:/";
     }
