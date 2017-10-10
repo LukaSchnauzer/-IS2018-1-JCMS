@@ -20,8 +20,14 @@
         
         <div class="contenedor">
             <header>
-                <form action="/Marcadores/agregaMarcador"> 
+                <form action="/Marcadores/agregaMarcador" style="display:inline"> 
                     <button id="btnSes" class="btn btn-primary btn-lg" >Agrega un marcador</button>
+                </form>
+                <form action="/Marcadores/perfil" style="display:inline"> 
+                    <button id="btnSes" class="btn btn-primary btn-lg" >Perfil</button>
+                </form>
+                <form action="/Marcadores/" style="display:inline"> 
+                    <button id="btnSes" class="btn btn-primary btn-lg" >Cerrar Sesion</button>
                 </form>
             </header>
     

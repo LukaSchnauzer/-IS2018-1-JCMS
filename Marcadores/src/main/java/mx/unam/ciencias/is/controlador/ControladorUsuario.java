@@ -48,10 +48,14 @@ public class ControladorUsuario {
         return "login";   
     }
     
-    /*
+    @RequestMapping(value="/registro", method = RequestMethod.POST)
+    public String registrar(){
+        return "register";   
+    }
+    
+
     @RequestMapping(value="/perfil", method = RequestMethod.GET)
     public String perfil(){
         return "perfil";   
     }
-    */
 }

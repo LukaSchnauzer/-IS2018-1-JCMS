@@ -43,56 +43,61 @@ body {
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
-      <form class="login-form">
         <div class="row">
           <div class="input-field col s12 center">
-            <img src="http://w3lessons.info/logo.png" alt="" class="responsive-img valign profile-image-login">
-            <p class="center login-form-text">W3lessons - Material Design SignUp Form</p>
+            <p class="center login-form-text">Ingresa tus datos</p>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
             <input id="username" type="text" class="validate">
-            <label for="username" class="center-align">Username</label>
+            <label for="username" class="center-align">Nombre</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            <input id="username" type="text" class="validate">
+            <label for="username" class="center-align">Nick</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-communication-email prefix"></i>
             <input id="email" type="email" class="validate">
-            <label for="email" class="center-align">Email</label>
+            <label for="email" class="center-align">E-mail</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
             <input id="password" type="password" class="validate">
-            <label for="password">Password</label>
+            <label for="password">Contrasena</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
             <input id="password-again" type="password">
-            <label for="password-again">Re-type password</label>
+            <label for="password-again">Confirma Contraseña</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a href="register.html" class="btn waves-effect waves-light col s12">Register Now</a>
+            <a href="register.html" class="btn waves-effect waves-light col s12">Registrate</a>
           </div>
-          <div class="input-field col s12">
-            <p class="margin center medium-small sign-up">Already have an account? <a href="login.html">Login</a></p>
-          </div>
+            <form action="/Marcadores/" >
+            <div class="input-field col s12">
+                <p class="margin center medium-small sign-up">¿Ya tienes una cuenta? <button type="submit" class="btn btn-primary btn-lg active">Login</button></p>
+            </div>
+            </form>
         </div>
-      </form>
     </div>
   </div>
 
 
   <center>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Post Page - Responsive -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:300px;height:250px"
@@ -123,14 +128,13 @@ body {
   ga('create', 'UA-27820211-3', 'auto');
   ga('send', 'pageview');
 
-</script><script src="//load.sumome.com/" data-sumo-site-id="1cf2c3d548b156a57050bff06ee37284c67d0884b086bebd8e957ca1c34e99a1" async="async"></script>
-
+</script>
 
    <footer class="page-footer">
           <div class="footer-copyright">
             <div class="container">
-            © 2015 W3lessons.info
-            <a class="grey-text text-lighten-4 right" href="http://w3lessons.info">Karthikeyan K</a>
+            © Luka Schnauzer
+            <a class="grey-text text-lighten-4 right">Juan Carlos Montero Santiago</a>
             </div>
           </div>
   </footer>

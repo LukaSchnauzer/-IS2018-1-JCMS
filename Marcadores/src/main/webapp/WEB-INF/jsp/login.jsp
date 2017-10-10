@@ -13,7 +13,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Login form using Material Design - Demo by W3lessons</title>
+  <title>Login</title>
   <!-- CORE CSS-->
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
@@ -69,27 +69,15 @@ body {
           </div>
         </div>
       </form>
+        <form action="/Marcadores/registro" method="POST">
       <div class="row">
         <div class="input-field col s6 m6 l6">
-          <p class="margin medium-small"><a href="register.jsp">Registrate</a></p>
+          <button type="submit" class="btn btn-primary btn-lg active">¡Registrate!</button>
         </div>        
       </div>
+        </form>
     </div>
   </div>
-
-
-  <center>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Post Page - Responsive -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:250px"
-     data-ad-client="ca-pub-5104998679826243"
-     data-ad-slot="3470684978"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</center>
-
 
 
   <!-- ================================================
@@ -110,8 +98,7 @@ body {
   ga('create', 'UA-27820211-3', 'auto');
   ga('send', 'pageview');
 
-</script><script src="//load.sumome.com/" data-sumo-site-id="1cf2c3d548b156a57050bff06ee37284c67d0884b086bebd8e957ca1c34e99a1" async="async"></script>
-
+</script>
 
    <footer class="page-footer">
           <div class="footer-copyright">
