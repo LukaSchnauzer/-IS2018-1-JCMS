@@ -144,4 +144,33 @@ public class UsuarioDAO {
                         }
         return result;
     }
+    
+    /**
+     * Regresa el usuario con el id dado. 
+     * @param id
+     * @return el usuario con el correo dado.
+     */
+    public Usuario getUsuario_id(int id) {
+        //aqui va tu codigo
+        Usuario result= null;
+        Session session = sessionFactory.openSession();
+        Transaction tx=null;
+        try{
+        tx=session.beginTransaction();
+        String hql= "FROM Usuario WHERE varIdusuario = :id";
+        Query query = session.createQuery(hql);
+        query.setParameter("id",id);
+        result=(Usuario)query.uniqueResult();
+        tx.commit();
+        }catch (Exception e){
+                if(tx != null){
+                tx.rollback();
+                }
+                e.printStackTrace();
+                
+                }finally{
+                        session.close();
+                        }
+        return result;
+    }
 }

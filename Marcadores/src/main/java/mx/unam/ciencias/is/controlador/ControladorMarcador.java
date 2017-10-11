@@ -10,6 +10,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import mx.unam.ciencias.is.mapeobd.Marcador;
 import mx.unam.ciencias.is.modelo.MarcadorDAO;
+import mx.unam.ciencias.is.mapeobd.Usuario;
+import mx.unam.ciencias.is.modelo.UsuarioDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -26,6 +28,10 @@ public class ControladorMarcador {
     /*Injectamos el modelo del marcador */
     @Autowired
     MarcadorDAO marcador_db;
+    
+    @Autowired
+    UsuarioDAO usuario_db;
+    
     
     /**
      * Regresa la pagina principal con los marcadores de la base de datos
@@ -69,6 +75,7 @@ public class ControladorMarcador {
             m.setVarLongitud(longitud);
             m.setVarNombreM(nombre);
             m.setVarDescripcion(descripcion);
+            m.setVarUsuarioid(usuario_db.getUsuario_id(1)); //Aqui va el id del usuario en sesion; 1 = default
             marcador_db.guardar(m);
         }
         return "redirect:/";
