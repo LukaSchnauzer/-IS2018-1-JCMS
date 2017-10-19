@@ -41,5 +41,48 @@
     <!--Ejemplo para configurar bean-->
     <bean id="MarcadorDAO" class="mx.unam.ciencias.is.modelo.MarcadorDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="UsuarioDAO" class="mx.unam.ciencias.is.modelo.UsuarioDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-
+    
+    
+    <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security-4.1.xsd">
+    <!-- SpringSecurity -->
+    <security:http pattern="/css/*" security="none"/>
+    <security:http pattern="/imagenes/*" security="none"/>
+    <security:http pattern="/js/*" security="none"/>
+    
+    <!-- aqui se nterceptan as peticiones de nuestra aplicacion-->
+    <security:http auto-config='true'>
+        <!-- si la peticion es / dejamos pasar a todos -->
+        <security:intercept-url pattern="/" access="permitAll" />
+        <!-- toda peticion con el texto /sesion/ antes de el noombre de la peticion
+        solo los que iniciaron sesion pueden acceder -->
+        <security:intercept-url pattern="/Marcadores/*" access="isAuthenticated()" />
+        <!--<security:intercept-url pattern="/admin/*" access=" hasRole('ROLE_Admin')" /> -->
+        <!--<security:intercept-url pattern="/root/*" access="hasRole('ROLE_Admin')" /> -->
+        <!--se configura el conportameinto de el log -->
+        <security:form-login login-page="/"
+                             authentication-failure-url="/?login_error=1"
+                             default-target-url="/inicio"
+                             always-use-default-target="true"/>
+        <security:csrf disabled="true"/>
+        <security:access-denied-handler error-page="/error403" />
+        <security:logout logout-success-url="/"
+                         delete-cookies="JSESSIONID"/>
+    </security:http>
+    
+    <security:authentication-manager>
+		<security:authentication-provider>
+			<security:jdbc-user-service data-source-ref="dataSource"
+				users-by-username-query="select correo, contrasena, 1 from usuario where correo=?"
+                                authorities-by-username-query="select correo, rol,1 from usuario where correo=?"/>
+		</security:authentication-provider>
+    </security:authentication-manager>
+    </beans>
+    
 </beans>

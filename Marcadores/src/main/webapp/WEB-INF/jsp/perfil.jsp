@@ -20,13 +20,13 @@
         
         <div class="contenedor">
             <header>
-                <form action ="/Marcadores/inicio" method="POST" style="display:inline"> 
+                <form action ="/Marcadores/inicio" style="display:inline"> 
                     <button id="btnIni" class="btn btn-primary btn-lg" >Inicio</button>
                 </form>
                 <form action="/Marcadores/agregaMarcador" style="display:inline"> 
                     <button id="btnAgr" class="btn btn-primary btn-lg" >Agrega un marcador</button>
                 </form>
-                <form action ="/Marcadores/" style="display:inline"> 
+                <form action ="/Marcadores/logout" style="display:inline"> 
                     <button id="btnCer" class="btn btn-primary btn-lg" >Cerrar Sesión</button>
                 </form> 
                 <button id="btnEli" class="btn btn-primary btn-lg" >Eliminar Cuenta</button>                   
@@ -58,7 +58,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mw-100">
-                            Aqui nombre
+                            ${nombre}
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mw-100">
-                            Aqui Correo
+                            ${correo}
                         </div>
                     </div>
                 </div>
@@ -91,9 +91,9 @@
                     </thead>
                     <c:forEach var="m" items="${marcadores}">
                         <tbody>
-                            <th>${m.varNombreM}</th>
-                            <th>${m.varLatitud}</th>
-                            <th>${m.varLongitud}</th>
+                            <th>${m.getVarNombreM()}</th>
+                            <th>${m.getVarLatitud()}</th>
+                            <th>${m.getVarLongitud()}</th>
                             <th>
                                 <form action="/Marcadores/actualizaM" method="GET">
                                     <input id="latitud" name="latitud" hidden="true" value="${m.varLatitud}">

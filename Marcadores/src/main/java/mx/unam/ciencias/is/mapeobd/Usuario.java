@@ -6,6 +6,8 @@
 package mx.unam.ciencias.is.mapeobd;
 
 import java.util.Set;
+import java.util.List;
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +32,8 @@ public class Usuario {
     private String varCorreo;
     @Column(name = "contrasena")
     private String varContrasena;
+    @Column(name = "rol")
+    private String varRol;
     @OneToMany(mappedBy="varUsuarioid")
     private Set<Marcador> varMarcadores;
     
@@ -72,5 +76,21 @@ public class Usuario {
 
     public void setVarMarcadores(Set varMarcadores) {
         this.varMarcadores = varMarcadores;
-    }   
+    }
+
+    public String getVarRol() {
+        return varRol;
+    }
+
+    public void setVarRol(String varRol) {
+        this.varRol = varRol;
+    }
+    
+    public List getVarMarcadoresLista(){
+        return new ArrayList<Marcador>(this.getVarMarcadores());
+    }
+    
+    public boolean equals(Usuario u){
+        return this.getVarIdusuario() == u.getVarIdusuario();
+    }
 }

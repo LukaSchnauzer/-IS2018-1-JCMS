@@ -7,6 +7,7 @@ package mx.unam.ciencias.is.controlador;
 /*Injectamos el modelo del usuario */
 import java.security.Principal;
 import java.util.List;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import mx.unam.ciencias.is.mapeobd.Marcador;
 import mx.unam.ciencias.is.modelo.MarcadorDAO;
@@ -49,6 +50,7 @@ public class ControladorUsuario {
             u.setVarNickname(nick);
             u.setVarCorreo(correo);
             u.setVarContrasena(contrasena);
+            u.setVarRol("ROLE_ADMIN");
             usuario_db.guardar(u);       
         }
         return "redirect:/";
@@ -62,7 +64,8 @@ public class ControladorUsuario {
     /*
     * Verifica si los datos de login son de un usuario ya registrado
     */
-    @RequestMapping(value="/verifica", method = RequestMethod.GET)
+    /*
+    @RequestMapping(value="/verifica", method = RequestMethod.POST)
     public ModelAndView verifica(ModelMap model,HttpServletRequest request){
         String correo = request.getParameter("email");
         String contrasena = request.getParameter("password");
@@ -74,7 +77,7 @@ public class ControladorUsuario {
         List<Marcador> mar = marcador_db.getMarcadores();
         model.addAttribute("marcadores", mar);
         return new ModelAndView("inicio",model);  
-    }
+    }*/
     
     @RequestMapping(value="/registro", method = RequestMethod.POST)
     public String registrar(){
@@ -83,7 +86,22 @@ public class ControladorUsuario {
     
 
     @RequestMapping(value="/perfil", method = RequestMethod.GET)
-    public String perfil(){
-        return "perfil";   
+    public ModelAndView perfil(HttpServletRequest request, ModelMap model, Principal principal){
+        String u = principal.getName();
+        Usuario us_inSess = usuario_db.getUsuario(u);
+        
+        List<Marcador> mar = marcador_db.getMarcadores();
+        List<Marcador> mar_u = new ArrayList<Marcador>();
+        
+        for(Marcador m : mar){
+            if(m.getVarUsuarioid().equals(us_inSess))
+                mar_u.add(m);
+        }
+        
+        model.addAttribute("correo", u);
+        model.addAttribute("nombre", us_inSess.getVarNickname());
+        model.addAttribute("marcadores", mar_u);
+        
+        return new ModelAndView("perfil",model);  
     }
 }

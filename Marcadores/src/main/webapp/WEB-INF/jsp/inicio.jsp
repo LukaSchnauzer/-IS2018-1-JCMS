@@ -26,7 +26,7 @@
                 <form action="/Marcadores/perfil" style="display:inline"> 
                     <button id="btnSes" class="btn btn-primary btn-lg" >Perfil</button>
                 </form>
-                <form action="/Marcadores/" style="display:inline"> 
+                <form action="/Marcadores/logout" style="display:inline"> 
                     <button id="btnSes" class="btn btn-primary btn-lg" >Cerrar Sesion</button>
                 </form>
             </header>

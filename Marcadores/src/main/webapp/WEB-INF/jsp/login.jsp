@@ -43,7 +43,7 @@ body {
 
   <div id="login-page" class="row">
     <div class="col s12 z-depth-6 card-panel">
-      <form action="/Marcadores/verifica" method="GET" class="login-form">
+      <form action="/Marcadores/login" method="POST" class="login-form">
         <div class="row">
           <div class="input-field col s12 center">
             <p class="center login-form-text">Marcadores</p>
@@ -52,7 +52,7 @@ body {
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input class="validate" name="email" id="email" type="email">
+            <input class="validate" name="username" id="email" type="email">
             <label for="email" data-error="wrong" data-success="right" class="center-align">E-mail</label>
           </div>
         </div>

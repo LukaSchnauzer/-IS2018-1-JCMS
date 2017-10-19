@@ -5,6 +5,8 @@
  */
 package mx.unam.ciencias.is.modelo;
 
+import java.util.List;
+import mx.unam.ciencias.is.mapeobd.Marcador;
 import mx.unam.ciencias.is.mapeobd.Usuario;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -171,6 +173,32 @@ public class UsuarioDAO {
                 }finally{
                         session.close();
                         }
+        return result;
+    }
+    
+    /**
+     * Regresa la lista de todos los marcadores en la base de datos
+     * @param id_u la id del usuario
+     * @return la lista que contiene a todos los marcadores con la id_usuario dada
+     */
+    public List<Marcador> getMarcadoresU(Usuario id_u){
+        List<Marcador> result= null;
+        Session session = sessionFactory.openSession();
+        Transaction tx=null;
+        try{
+            tx=session.beginTransaction();
+            String hql= "FROM Marcador WHERE varUsuarioid = :idu";
+            Query query = session.createQuery(hql);
+            query.setParameter("idu",id_u);
+            result=(List<Marcador>)query.list();
+            tx.commit();
+        }catch (Exception e){
+            if(tx != null)
+                tx.rollback();
+            e.printStackTrace();      
+        }finally{
+            session.close();
+        }
         return result;
     }
 }
