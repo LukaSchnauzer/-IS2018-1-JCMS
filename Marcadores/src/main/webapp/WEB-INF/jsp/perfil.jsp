@@ -29,8 +29,6 @@
                 <form action ="/Marcadores/logout" style="display:inline"> 
                     <button id="btnCer" class="btn btn-primary btn-lg" >Cerrar Sesión</button>
                 </form> 
-                <button id="btnEli" class="btn btn-primary btn-lg" >Eliminar Cuenta</button>                   
-                <button id="btnMod" class="btn btn-primary btn-lg" >Editar Perfil</button>
             </header>
             <section class="main">
                 <div class="row"> 
@@ -109,37 +107,6 @@
             </aside>
          </div>
         
-        
-        <div id="myModalMod" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h1>Editar</h1>
-                            <div class="formholder">
-                                <div class="randompad">
-                                    <fieldset>
-                                        <label name="nombre">Nombre</label>
-                                        <input type="nombre"/>
-                                        <label name="nickname">Nickname</label>
-                                        <input type="nickname" />
-                                        <label name="email">Correo</label>
-                                        <input type="email"/>
-                                        <label name="password">Password</label>
-                                        <input type="password" />
-                                        <button id="btnYes" class="btn btn-primary btn-lg" >Continuar</button>
-                                        <button id="btnNo" class="btn btn-primary btn-lg" >Cancelar</button>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-        </div>
-        <div id="myModalEli" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <p>¿Seguro que quieres eliminar tu cuenta?</p>
-                                <button id="btnYes" class="btn btn-primary btn-lg" >¡Si!</button>
-                                <button id="btnNo" class="btn btn-primary btn-lg" >¡No!</button>
-                            </div>
-        </div>
         <!-- Latest compiled and minified JavaScript -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script src="js/perfil.js"></script>

@@ -19,7 +19,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
@@ -43,13 +43,15 @@ public class ControladorUsuario {
         String nick = request.getParameter("nick");
         String correo = request.getParameter("email");
         String contrasena = request.getParameter("password");
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(contrasena);
         String contrasenaConf = request.getParameter("password-conf");
         Usuario u = usuario_db.getUsuario(correo);
         if(u==null && (contrasenaConf.equals(contrasena))){
             u = new Usuario();
             u.setVarNickname(nick);
             u.setVarCorreo(correo);
-            u.setVarContrasena(contrasena);
+            u.setVarContrasena(hashedPassword);
             u.setVarRol("ROLE_ADMIN");
             usuario_db.guardar(u);       
         }

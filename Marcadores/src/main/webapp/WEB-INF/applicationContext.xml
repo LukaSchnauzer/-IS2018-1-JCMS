@@ -78,6 +78,7 @@
     
     <security:authentication-manager>
 		<security:authentication-provider>
+                        <security:password-encoder hash="bcrypt" />
 			<security:jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select correo, contrasena, 1 from usuario where correo=?"
                                 authorities-by-username-query="select correo, rol,1 from usuario where correo=?"/>
